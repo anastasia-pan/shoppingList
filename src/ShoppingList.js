@@ -19,6 +19,7 @@ const ShoppingList = () => {
     let t = newTask(userInput);
     let newArray = [...tasks];
     newArray.push(t);
+
     setTasks(newArray);
     setUserInput("");
     event.preventDefault();
@@ -32,10 +33,31 @@ const ShoppingList = () => {
       </form>
       <h1>To Do:</h1>
       <ul>
-        {tasks.map((task) => (
-          <li>{task.title}</li>
-        ))}
+        <div className="listLine">
+          {tasks.map((task) => (
+            <Task task={task} />
+          ))}
+        </div>
       </ul>
+    </div>
+  );
+};
+
+const Task = (props) => {
+  const [task, setTask] = useState(props.task);
+
+  const markCompleted = () => {
+    task.completed = true;
+    setTask(task);
+  };
+
+  const deleted = () => {};
+
+  return (
+    <div>
+      <li style={{ color: task.completed ? "red" : "blue" }}>{task.title}</li>
+      <button onClick={deleted}>Delete</button>
+      <button onClick={markCompleted}>Mark as done</button>
     </div>
   );
 };
