@@ -1,27 +1,31 @@
 import { useState } from "react";
 
-const ShoppingList = () => {
-  const newTask = (text) => {
-    return {
-      title: text,
-      completed: false,
-    };
+const newTask = (text) => {
+  return {
+    title: text,
+    completed: false,
   };
+};
 
+const ShoppingList = () => {
+  //states set for an array of Tasks, to be modified by user input
   const [tasks, setTasks] = useState([newTask("sewing")]);
+  //state set for userinput , initially an empty string
   const [userInput, setUserInput] = useState("");
   //function to store the input box value in State
   const updateValue = (event) => {
     setUserInput(event.target.value);
   };
-
+  //an additem function that takes a task from userInput and updates the state of an array
   const addItem = (event) => {
     let t = newTask(userInput);
     let newArray = [...tasks];
     newArray.push(t);
 
     setTasks(newArray);
+    //resets input box to blank
     setUserInput("");
+    //prevents from onSubmit refreshing the page
     event.preventDefault();
   };
 
@@ -47,8 +51,9 @@ const Task = (props) => {
   const [task, setTask] = useState(props.task);
 
   const markCompleted = () => {
-    task.completed = true;
-    setTask(task);
+    let t = newTask(task.title);
+    t.completed = true;
+    setTask(t);
   };
 
   const deleted = () => {};
