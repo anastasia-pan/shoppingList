@@ -9,7 +9,7 @@ const newTask = (text) => {
 
 const ShoppingList = () => {
   //states set for an array of Tasks, to be modified by user input
-  const [tasks, setTasks] = useState([newTask("sewing")]);
+  const [tasks, setTasks] = useState([newTask("Example here")]);
   //state set for userinput , initially an empty string
   const [userInput, setUserInput] = useState("");
   //function to store the input box value in State
@@ -71,12 +71,25 @@ const Task = (props) => {
   };
 
   return (
-    <div className="listLine">
+    <div
+      className="listLine"
+      style={
+        task.completed
+          ? {
+              backgroundColor: "pink",
+            }
+          : { backgroundColor: "white" }
+      }
+    >
       <li
         key="value"
         style={
           task.completed
-            ? { textDecoration: "line-through", opacity: "0.6" }
+            ? {
+                textDecoration: "line-through",
+                opacity: "0.6",
+                backgroundColor: "pink",
+              }
             : { textDecoration: "none" }
         }
       >
