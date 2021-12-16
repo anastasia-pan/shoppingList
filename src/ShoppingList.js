@@ -29,8 +29,16 @@ const ShoppingList = () => {
     event.preventDefault();
   };
 
+  const deleted = (props) => {
+    let x = props.title;
+    let newArray = [...tasks];
+    newArray.pop(x);
+    setTasks(newArray);
+  };
+
   return (
     <div>
+      <h1>Add tasks to a to do list</h1>
       <form onSubmit={addItem}>
         <input value={userInput} onChange={updateValue} />
         <button onClick={addItem}>add an item</button>
@@ -39,7 +47,7 @@ const ShoppingList = () => {
       <ul>
         <div className="listLine">
           {tasks.map((task) => (
-            <Task task={task} />
+            <Task task={task} func={deleted} />
           ))}
         </div>
       </ul>
@@ -56,12 +64,10 @@ const Task = (props) => {
     setTask(t);
   };
 
-  const deleted = () => {};
-
   return (
     <div>
       <li style={{ color: task.completed ? "red" : "blue" }}>{task.title}</li>
-      <button onClick={deleted}>Delete</button>
+      <button onClick={props.func}>Delete</button>
       <button onClick={markCompleted}>Mark as done</button>
     </div>
   );
