@@ -71,9 +71,8 @@ const Task = (props) => {
   };
 
   return (
-    <div>
+    <div className="listLine">
       <li
-        className="listLine"
         key="value"
         style={
           task.completed
