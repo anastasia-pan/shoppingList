@@ -1,0 +1,28 @@
+button {
+  border-radius: 50%;
+  background: hsla(333, 100%, 53%, 1);
+
+  background: linear-gradient(
+    90deg,
+    hsla(333, 100%, 53%, 1) 0%,
+    hsla(325, 71%, 70%, 1) 50%,
+    hsla(33, 94%, 57%, 1) 100%
+  );
+
+  background: -moz-linear-gradient(
+    90deg,
+    hsla(333, 100%, 53%, 1) 0%,
+    hsla(325, 71%, 70%, 1) 50%,
+    hsla(33, 94%, 57%, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    90deg,
+    hsla(333, 100%, 53%, 1) 0%,
+    hsla(325, 71%, 70%, 1) 50%,
+    hsla(33, 94%, 57%, 1) 100%
+  );
+  color: purple;
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#FF0F7B", endColorstr="#E97CBB", GradientType=1 );
+}
